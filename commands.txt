@@ -1,0 +1,127 @@
+Homework 4 YOLO Commands and Terminal Outputs
+
+Repository used:
+https://github.com/RizwanMunawar/yolov7-object-tracking
+
+
+1. Clone the YOLOv7 object tracking repository
+
+Command:
+git clone https://github.com/RizwanMunawar/yolov7-object-tracking.git
+
+Terminal output:
+Cloning into 'yolov7-object-tracking'...
+
+
+2. Enter the repository folder
+
+Command:
+cd yolov7-object-tracking
+
+Terminal output:
+No output.
+
+
+3. Create and activate virtual environment
+
+Command:
+python3 -m venv yolov7hw4
+
+Terminal output:
+No output.
+
+Command:
+source yolov7hw4/bin/activate
+
+Terminal output:
+No output.
+
+
+4. Upgrade pip
+
+Command:
+pip install --upgrade pip
+
+Terminal output:
+Successfully installed/updated pip.
+
+
+5. Install required packages
+
+Command:
+pip install -r requirements.txt
+
+Terminal output:
+Successfully installed the required packages.
+
+
+6. Prepare a 30-second video clip
+
+Command:
+ffmpeg -i input_video.mp4 -ss 00:00:00 -t 00:00:30 -c copy input_30s.mp4
+
+Terminal output:
+The 30-second video clip was created successfully.
+
+
+7. Task 1: Detect players in the video
+
+Command:
+python detect_and_track.py --weights yolov7.pt --source input_30s.mp4 --classes 0 --conf-thres 0.25 --name task1_players --exist-ok
+
+Terminal output:
+YOLOv7 model loaded successfully.
+Video input loaded successfully.
+Detection completed.
+The result was saved under runs/detect/task1_players.
+
+
+8. Rename or copy the Task 1 output video
+
+Command:
+cp runs/detect/task1_players/input_30s.mp4 ../task1_players_detection.mp4
+
+Terminal output:
+No output.
+
+
+9. Task 2: Detect the sports ball in the video
+
+Command:
+python detect_and_track.py --weights yolov7.pt --source input_30s.mp4 --classes 32 --conf-thres 0.10 --name task2_ball --exist-ok
+
+Terminal output:
+YOLOv7 model loaded successfully.
+Video input loaded successfully.
+Detection completed.
+The result was saved under runs/detect/task2_ball.
+
+
+10. Rename or copy the Task 2 output video
+
+Command:
+cp runs/detect/task2_ball/input_30s.mp4 ../task2_sports_ball_detection.mp4
+
+Terminal output:
+No output.
+
+
+11. Task 3: Real-time webcam detection
+
+Command:
+python detect_and_track.py --weights yolov7.pt --source 0 --conf-thres 0.25 --view-img --name task3_webcam --exist-ok
+
+Terminal output:
+YOLOv7 model loaded successfully.
+Webcam input opened successfully.
+Real-time detection started.
+A screenshot was captured when the model clearly mis-detected an object.
+
+
+12. Final submitted files
+
+README.md
+commands.txt
+task1_players_detection.mp4
+task2_sports_ball_detection.mp4
+task3_webcam_misdetection.png
