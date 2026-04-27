@@ -217,3 +217,4 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 yolov7-object-tracking/
+yolov7-object-tracking/
