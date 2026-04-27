@@ -1,0 +1,8 @@
+runs/
+*/__pycache__/
+__pycache__
+weights/
+traced_model.pt
+.idea/
+.pt
+
